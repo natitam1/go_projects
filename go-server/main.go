@@ -10,12 +10,13 @@ import (
 func helloHandler(w http.ResponseWriter, r *http.Request) {
 if r.URL.Path != "/hello" {
 	http.Error(w, "404 not found", http.StatusNotFound)
+	return
 }
 if r.Method != "Get" {
 	http.Error(w,"method is not supported", http.StatusNotFound)
 	return
 }
-fmt.Fprint(w, "hello!")
+fmt.Fprintf(w, "hello!")
 }
 
 
